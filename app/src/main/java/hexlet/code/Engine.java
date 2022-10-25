@@ -51,6 +51,7 @@ public class Engine {
     public static void isWrongAnswer(int answerOfUser, int correctAnswer) {
         System.out.print("'" + answerOfUser + "'" + " is wrong answer ;(. ");
         System.out.println("Correct answer was " + "'" + correctAnswer + "'");
+        System.out.println("Let's try again, " + Games.name + "!");
     }
 }
 
