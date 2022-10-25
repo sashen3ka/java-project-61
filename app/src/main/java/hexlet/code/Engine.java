@@ -13,6 +13,7 @@ public class Engine {
                 1 - Greet
                 2 - Even
                 3 - Calc
+                4 - GSD
                 0 - Exit""");
 
         var choice = scanner.nextInt();
@@ -24,17 +25,32 @@ public class Engine {
 
         } else if (choice == 2) {
             Games.greeting();
-
             Games.even();
 
         } else if (choice == 3) {
-            Games.greeting();
 
+            Games.greeting();
             Games.calc();
+
+        } else if (choice == 4) {
+
+            Games.greeting();
+            Games.gsd();
 
         } else {
             System.out.println("Goodbye.");
         }
+    }
+
+    public static void congratulations(int winCounter, int correctAnswersForWin) {
+        if (winCounter == correctAnswersForWin) {
+            System.out.println("Congratulations, " + Games.name + "!");
+        }
+    }
+
+    public static void isWrongAnswer(int answerOfUser, int correctAnswer) {
+        System.out.print("'" + answerOfUser + "'" + " is wrong answer ;(. ");
+        System.out.println("Correct answer was " + "'" + correctAnswer + "'");
     }
 }
 
