@@ -14,6 +14,7 @@ public class Engine {
                 2 - Even
                 3 - Calc
                 4 - GSD
+                5 - Progression
                 0 - Exit""");
 
         var choice = scanner.nextInt();
@@ -37,6 +38,11 @@ public class Engine {
             Games.greeting();
             Games.gsd();
 
+        } else if (choice == 5) {
+
+            Games.greeting();
+            Games.progression();
+
         } else {
             System.out.println("Goodbye.");
         }
@@ -49,8 +55,9 @@ public class Engine {
     }
 
     public static void isWrongAnswer(int answerOfUser, int correctAnswer) {
+
         System.out.print("'" + answerOfUser + "'" + " is wrong answer ;(. ");
-        System.out.println("Correct answer was " + "'" + correctAnswer + "'");
+        System.out.println("Correct answer was " + "'" + correctAnswer + "'" + ".");
         System.out.println("Let's try again, " + Games.name + "!");
     }
 }

@@ -13,8 +13,8 @@ public final class Games {
     private static int winCounter = 0;
     private static final int correctAnswersForWin = 3;
 
-    public static int randomNumber() {
-        return (int) (Math.random() * 100 + 1);
+    public static int randomNumber(int max, int min) {
+        return (int) (Math.random() * max + min);
     }
 
     public static int gcdByEuclidsAlgorithm(int a, int b) {
@@ -43,7 +43,7 @@ public final class Games {
 
         while (winCounter < correctAnswersForWin) {
 
-            int number = randomNumber();
+            int number = randomNumber(100, 1);
             System.out.println("Question: " + number);
 
             String correctAnswer = ((number % 2) == 0) ? "yes" : "no";
@@ -77,9 +77,9 @@ public final class Games {
 
         while (winCounter < correctAnswersForWin) {
 
-            int a = randomNumber();
-            int b = randomNumber();
-            int randomOperator = (int) (Math.random() * 3 + 0) + 1;
+            int a = randomNumber(100, 1);
+            int b = randomNumber(100, 1);
+            int randomOperator = randomNumber(3, 1);
 
             if (randomOperator == 1) {
 
@@ -151,8 +151,8 @@ public final class Games {
 
         while (winCounter < correctAnswersForWin) {
 
-            int a = randomNumber();
-            int b = randomNumber();
+            int a = randomNumber(100, 1);
+            int b = randomNumber(100, 1);
 
             int correctAnswer = gcdByEuclidsAlgorithm(a, b);
 
@@ -176,6 +176,50 @@ public final class Games {
             Engine.congratulations(winCounter, correctAnswersForWin);
         }
     }
- }
+
+    public static void progression() {
+
+        System.out.println("What number is missing in the progression?");
+        System.out.print("Question: ");
+
+        while (winCounter < correctAnswersForWin) {
+
+            int startOfProgression = randomNumber(100, 1);
+            int amountOfNumbers = 10;
+            int differenceOfProgression = randomNumber(10, 1);
+            int missingNumber = randomNumber(10, 1);
+            int correctAnswer = startOfProgression +  differenceOfProgression * (missingNumber - 1);
+
+            for (int i = 1; i <= amountOfNumbers; ++i) {
+                if (i == missingNumber) {
+                    System.out.print(".. ");
+
+                } else {
+                    System.out.print(startOfProgression + " ");
+                }
+                startOfProgression += differenceOfProgression;
+            }
+
+            System.out.println();
+            int answer = scanner.nextInt();
+            System.out.println("Your answer: " + answer);
+
+            if (answer == correctAnswer) {
+
+                winCounter++;
+                System.out.println("Correct!");
+
+            } else {
+
+                Engine.isWrongAnswer(answer, correctAnswer);
+                break;
+            }
+
+            Engine.congratulations(winCounter, correctAnswersForWin);
+        }
+    }
+}
+
+
 
 
