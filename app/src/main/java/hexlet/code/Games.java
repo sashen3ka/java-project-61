@@ -24,6 +24,19 @@ public final class Games {
         return gcdByEuclidsAlgorithm(b, a % b);
     }
 
+    public static boolean isPrime(int number) {
+        boolean check = true;
+        if (number > 1) {
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    check = false;
+                    break;
+                }
+            }
+        }
+        return check;
+    }
+
     public static void greeting() {
 
         System.out.println("Welcome to the Brain Games!\nMay I have your name?");
@@ -69,6 +82,8 @@ public final class Games {
             Engine.congratulations(winCounter, correctAnswersForWin);
         }
     }
+
+
 
 
     public static void calc() {
@@ -218,8 +233,36 @@ public final class Games {
             Engine.congratulations(winCounter, correctAnswersForWin);
         }
     }
-}
 
+    public static void prime() {
+
+        var yes = "yes";
+        var no = "no";
+
+        System.out.println("Answer " + "'" + yes + "'" + " if given number is prime. Otherwise answer " + "'" + no + "'" + ".");
+
+        while (winCounter < correctAnswersForWin) {
+            int number = randomNumber(100, 1);
+            System.out.println("Question: " + number);
+
+            String correctAnswer = (isPrime(number)) ? "yes" : "no";
+
+            String answer = scanner.next();
+            System.out.println("Your answer: " + answer);
+
+            if (answer.equals(correctAnswer)) {
+                System.out.println("Correct!");
+                winCounter++;
+            } else {
+                System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
+                System.out.println("Correct answer was " + "'" + correctAnswer + "'");
+                break;
+            }
+            Engine.congratulations(winCounter, correctAnswersForWin);
+        }
+    }
+
+}
 
 
 

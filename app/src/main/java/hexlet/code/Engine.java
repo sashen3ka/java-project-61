@@ -15,6 +15,7 @@ public class Engine {
                 3 - Calc
                 4 - GSD
                 5 - Progression
+                6 - Prime
                 0 - Exit""");
 
         var choice = scanner.nextInt();
@@ -43,7 +44,12 @@ public class Engine {
             Games.greeting();
             Games.progression();
 
-        } else {
+        } else if (choice == 6) {
+
+            Games.greeting();
+            Games.prime();
+        }
+        else {
             System.out.println("Goodbye.");
         }
     }
